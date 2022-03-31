@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Modelo1-ARC_v0.1" id="Project-145a" database="PostgreSQL" >
+	<comment><![CDATA[Base para empresas datos Legado y empresas que no ha migrado al sistema SAP]]></comment>
+	<schema name="modelo1-arc_v0_1" >
+		<table name="abonado" prior="tbl_1" >
+			<column name="id_abonado" type="integer" jt="4" mandatory="y" >
+				<identity><![CDATA[GENERATED AS IDENTITY (INCREMENT BY 1 )]]></identity>
+			</column>
+			<column name="cedula_ruc" type="varchar" length="15" jt="12" />
+			<column name="nombre" type="varchar" length="50" jt="12" />
+			<index name="pk_abonado" unique="PRIMARY_KEY" >
+				<column name="id_abonado" />
+			</index>
+		</table>
+		<table name="empresa" prior="cle" spec="" >
+			<column name="idempresa" type="integer" jt="4" mandatory="y" />
+			<column name="nombre" prior="nombreempresa" type="varchar" length="30" jt="12" />
+			<index name="pk_empresa" unique="PRIMARY_KEY" >
+				<column name="idempresa" />
+			</index>
+		</table>
+		<table name="gestion_realizada_por" prior="tbl_1" >
+			<column name="id_gestion_realizada_por" type="integer" jt="4" mandatory="y" />
+			<column name="nombre" type="varchar" length="20" jt="12" />
+			<index name="pk_gestion_realizada_por" unique="PRIMARY_KEY" >
+				<column name="id_gestion_realizada_por" />
+			</index>
+		</table>
+		<table name="lectura" prior="tbl_1" >
+			<column name="id_lectura" type="integer" jt="4" mandatory="y" >
+				<identity><![CDATA[GENERATED ALWAYS AS IDENTITY ]]></identity>
+			</column>
+			<column name="mes" type="integer" jt="4" />
+			<column name="año" type="integer" jt="4" />
+			<column name="estimado" type="boolean" jt="-7" >
+				<comment><![CDATA[si es estimado verdadero
+si es leido falso]]></comment>
+			</column>
+			<column name="nota_de_lectura" type="varchar" length="150" jt="12" >
+				<comment><![CDATA[notas de lectura segun describan las empresas]]></comment>
+			</column>
+			<index name="pk_lectura" unique="PRIMARY_KEY" >
+				<column name="id_lectura" />
+			</index>
+		</table>
+		<table name="lectura-legacy" prior="lectura-" >
+			<comment><![CDATA[datos que ya no serán solicitaos]]></comment>
+			<column name="id_lectura" type="integer" jt="4" mandatory="y" />
+			<index name="pk_lectura-legacy" unique="PRIMARY_KEY" >
+				<column name="id_lectura" />
+			</index>
+		</table>
+		<table name="lugar_geografico" prior="lugar" >
+			<column name="id_lugar_geografico" type="varchar" length="6" jt="12" mandatory="y" />
+			<column name="descripcion" type="varchar" length="50" jt="12" />
+			<index name="pk_lugar_geografico" unique="PRIMARY_KEY" >
+				<column name="id_lugar_geografico" />
+			</index>
+		</table>
+		<table name="medidor" prior="tbl_1" >
+			<column name="cuen" type="varchar" length="15" jt="12" mandatory="y" />
+			<column name="num_medidor" type="integer" jt="4" />
+			<column name="fecha_ingreso" type="date" jt="91" />
+			<column name="coordenadas_x" type="numeric" jt="2" />
+			<column name="coordenadas_y" type="numeric" jt="2" />
+			<column name="ubicacion" type="varchar" length="200" jt="12" />
+			<index name="pk_medidor" unique="PRIMARY_KEY" >
+				<column name="cuen" />
+			</index>
+		</table>
+		<table name="tarifa" prior="tbl_0" >
+			<column name="id_tarifa" type="varchar" length="8" jt="12" mandatory="y" />
+			<column name="descripcion" prior="nombre" type="varchar" length="80" jt="12" mandatory="y" />
+			<index name="pk_tarifa" unique="PRIMARY_KEY" >
+				<column name="id_tarifa" />
+			</index>
+		</table>
+		<table name="tbl" />
+		<table name="tbl_0" />
+	</schema>
+	<layout name="Default Layout" id="Layout-23b5" show_relation="columns" >
+		<entity schema="modelo1-arc_v0_1" name="abonado" color="C1D8EE" x="96" y="240" />
+		<entity schema="modelo1-arc_v0_1" name="empresa" color="C1D8EE" x="400" y="416" />
+		<entity schema="modelo1-arc_v0_1" name="gestion_realizada_por" color="C1D8EE" x="368" y="576" />
+		<entity schema="modelo1-arc_v0_1" name="lectura" color="C1D8EE" x="112" y="576" />
+		<entity schema="modelo1-arc_v0_1" name="lectura-legacy" color="C1D8EE" x="288" y="144" />
+		<entity schema="modelo1-arc_v0_1" name="lugar_geografico" color="C1D8EE" x="160" y="432" />
+		<entity schema="modelo1-arc_v0_1" name="medidor" color="C1D8EE" x="496" y="224" />
+		<entity schema="modelo1-arc_v0_1" name="tarifa" color="C1D8EE" x="304" y="256" />
+		<callout x="48" y="48" pointer="Round" >
+			<comment><![CDATA[In the offline mode, the new created tables will be saved to the model file.
+Connecting to a database can compare the model with the database and create them in the database.
+Right-click the layout to create new tables.]]></comment>
+		</callout>
+	</layout>
+</project>
