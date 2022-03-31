@@ -46,12 +46,6 @@ si es leido falso]]></comment>
 		<table name="lectura-legacy" prior="lectura-" >
 			<comment><![CDATA[datos que ya no serán solicitaos]]></comment>
 			<column name="id_lectura" type="integer" jt="4" mandatory="y" />
-			<column name="contratat_toma_lectura" type="boolean" jt="-7" />
-			<column name="nombre_contratista" type="varchar" length="50" jt="12" />
-			<column name="sector o ruta" type="varchar" length="50" jt="12" />
-			<column name="observaciones" type="varchar" length="150" jt="12" />
-			<column name="spee" type="numeric" jt="2" />
-			<column name="sapg" type="numeric" jt="2" />
 			<index name="pk_lectura-legacy" unique="PRIMARY_KEY" >
 				<column name="id_lectura" />
 			</index>
@@ -89,7 +83,7 @@ si es leido falso]]></comment>
 		<entity schema="modelo1-arc_v0_1" name="empresa" color="C1D8EE" x="400" y="416" />
 		<entity schema="modelo1-arc_v0_1" name="gestion_realizada_por" color="C1D8EE" x="368" y="576" />
 		<entity schema="modelo1-arc_v0_1" name="lectura" color="C1D8EE" x="112" y="576" />
-		<entity schema="modelo1-arc_v0_1" name="lectura-legacy" color="C1D8EE" x="336" y="768" />
+		<entity schema="modelo1-arc_v0_1" name="lectura-legacy" color="C1D8EE" x="288" y="144" />
 		<entity schema="modelo1-arc_v0_1" name="lugar_geografico" color="C1D8EE" x="160" y="432" />
 		<entity schema="modelo1-arc_v0_1" name="medidor" color="C1D8EE" x="496" y="224" />
 		<entity schema="modelo1-arc_v0_1" name="tarifa" color="C1D8EE" x="304" y="256" />
