@@ -11,6 +11,9 @@
 			<index name="pk_abonado" unique="PRIMARY_KEY" >
 				<column name="id_abonado" />
 			</index>
+			<index name="idx_abonado" unique="NORMAL" >
+				<column name="identificacion" />
+			</index>
 		</table>
 		<table name="empresa" >
 			<column name="id_empresa" type="integer" jt="4" mandatory="y" />
@@ -101,6 +104,11 @@ tomada falso]]></comment>
 			<column name="id_lugar_geografico" type="varchar" length="6" jt="12" />
 			<index name="pk_medidor" unique="PRIMARY_KEY" >
 				<column name="id_medidor" />
+			</index>
+			<index name="idx_medidor" unique="NORMAL" >
+				<column name="cuen" />
+				<column name="cuenta" />
+				<column name="num_medidor" />
 			</index>
 			<fk name="fk_medidor_abonado" to_schema="public" to_table="abonado" >
 				<fk_column name="id_abonado" pk="id_abonado" />
