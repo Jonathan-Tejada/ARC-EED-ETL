@@ -1,0 +1,4 @@
+1. Formato 
+	1.1. Empresas: CNEL Quito
+	1.2. Columnas: Item, Mes, Cuenta Suministro, Numero Medidor, Tarifa, Descripcion Trifa, Nivel Voltaje, Cedula Abonado, Nombre Abonado, Fecha Ingreso Sistema, Ubicacion Abonado, Provincia, Canton, Parroquia, CoorUTMx, CoordUTMy, ClienteRU, Tipo Lectura (T/P), Causa si es Propuesta, Ultimo mes facturado, gestion con: (P/T/R), 
+Toma Lectura Cotratada (S/N), Nombre Empresa Toma Lectura, Sector o Ruta de Contratista, Observaciones, SPEE(USD), SAPG(USD)
