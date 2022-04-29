@@ -1,0 +1,11 @@
+Comando para ingresar con usuario:
+psql -U [Nombre de usuario] -d [Nombre de la base de datos]
+
+Comando para ejecutar código:
+psql -c "Comando a ejecutarse" -d [Nombre de la base de datos]
+
+Comando para ejecutar archivo SQL:
+psql -f [Nombre del archivo] -d [Nombre de la base de datos]
+
+Comando para listar las bases de datos existentes:
+psql -l
