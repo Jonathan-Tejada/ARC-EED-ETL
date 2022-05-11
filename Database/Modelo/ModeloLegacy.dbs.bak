@@ -3,11 +3,13 @@
 	<schema name="public" >
 		<comment><![CDATA[standard public schema]]></comment>
 		<table name="abonado" >
-			<column name="id_abonado" type="serial" jt="4" mandatory="y" />
-			<column name="identificacion" type="varchar" length="20" jt="12" >
+			<column name="id_abonado" type="integer" length="10" decimal="0" jt="4" mandatory="y" >
+				<defo><![CDATA[nextval('abonado_id_abonado_seq1'::regclass)]]></defo>
+			</column>
+			<column name="identificacion" type="varchar" length="20" decimal="0" jt="12" >
 				<comment><![CDATA[cedula o ruc]]></comment>
 			</column>
-			<column name="nombre" type="varchar" length="150" jt="12" />
+			<column name="nombre" type="varchar" length="150" decimal="0" jt="12" />
 			<index name="pk_abonado" unique="PRIMARY_KEY" >
 				<column name="id_abonado" />
 			</index>
@@ -16,8 +18,8 @@
 			</index>
 		</table>
 		<table name="empresa" >
-			<column name="id_empresa" type="integer" jt="4" mandatory="y" />
-			<column name="nombre" type="varchar" length="50" jt="12" />
+			<column name="id_empresa" type="integer" length="10" decimal="0" jt="4" mandatory="y" />
+			<column name="nombre" type="varchar" length="50" decimal="0" jt="12" />
 			<index name="pk_empresa" unique="PRIMARY_KEY" >
 				<column name="id_empresa" />
 			</index>
@@ -29,79 +31,85 @@
 				<column name="id_empresa" />
 				<column name="id_lugar" />
 			</index>
-			<fk name="fk_empresa_lugar_lugar_geografico" to_schema="public" to_table="lugar_geografico" >
-				<fk_column name="id_lugar" pk="id_luger_geografico" />
-			</fk>
 			<fk name="fk_empresa_lugar_empresa" to_schema="public" to_table="empresa" >
 				<fk_column name="id_empresa" pk="id_empresa" />
 			</fk>
+			<fk name="fk_empresa_lugar_lugar_geografico" to_schema="public" to_table="lugar_geografico" >
+				<fk_column name="id_lugar" pk="id_luger_geografico" />
+			</fk>
 		</table>
-		<table name="gestion_realizada_por" prior="gerion_realizada_por" >
-			<column name="id_gestion_realizada_por" type="serial" jt="4" mandatory="y" />
-			<column name="nombre" type="varchar" length="16" jt="12" />
+		<table name="gestion_realizada_por" >
+			<column name="id_gestion_realizada_por" type="integer" length="10" decimal="0" jt="4" mandatory="y" >
+				<defo><![CDATA[nextval('gestion_realizada_por_id_gestion_realizada_por_seq'::regclass)]]></defo>
+			</column>
+			<column name="nombre" type="varchar" length="16" decimal="0" jt="12" />
 			<index name="pk_gerion_realizada_por" unique="PRIMARY_KEY" >
 				<column name="id_gestion_realizada_por" />
 			</index>
 		</table>
 		<table name="lectura" >
-			<column name="id_lectura" type="bigserial" jt="-5" mandatory="y" />
-			<column name="mes" type="smallint" jt="5" />
-			<column name="anio" type="integer" jt="4" />
-			<column name="estimado" type="boolean" jt="-7" >
+			<column name="id_lectura" type="bigint" length="19" decimal="0" jt="-5" mandatory="y" >
+				<defo><![CDATA[nextval('lectura_id_lectura_seq1'::regclass)]]></defo>
+			</column>
+			<column name="mes" type="smallint" length="5" decimal="0" jt="5" />
+			<column name="anio" type="integer" length="10" decimal="0" jt="4" />
+			<column name="estimado" type="boolean" length="1" decimal="0" jt="-7" >
 				<comment><![CDATA[propuesta verdadero
 tomada falso]]></comment>
 			</column>
-			<column name="nota_lectura" type="varchar" length="100" jt="12" />
-			<column name="ultimo_mes_facturado" type="smallint" jt="5" />
-			<column name="ultimo_anio_facturado" type="smallint" jt="5" />
-			<column name="contrata_toma_lectura" type="boolean" jt="-7" />
-			<column name="nombre_contratista" type="varchar" length="100" jt="12" />
-			<column name="sector_ruta" type="varchar" length="50" jt="12" />
-			<column name="observaciones" type="varchar" length="150" jt="12" />
-			<column name="spee" type="money" jt="3" />
-			<column name="sapg" type="money" jt="3" />
-			<column name="rural" type="boolean" jt="-7" >
+			<column name="nota_lectura" type="varchar" length="100" decimal="0" jt="12" />
+			<column name="ultimo_mes_facturado" type="smallint" length="5" decimal="0" jt="5" />
+			<column name="ultimo_anio_facturado" type="smallint" length="5" decimal="0" jt="5" />
+			<column name="contrata_toma_lectura" type="boolean" length="1" decimal="0" jt="-7" />
+			<column name="nombre_contratista" type="varchar" length="100" decimal="0" jt="12" />
+			<column name="sector_ruta" type="varchar" length="50" decimal="0" jt="12" />
+			<column name="observaciones" type="varchar" length="150" decimal="0" jt="12" />
+			<column name="spee" type="money" decimal="0" jt="3" />
+			<column name="sapg" type="money" decimal="0" jt="3" />
+			<column name="rural" type="boolean" length="1" decimal="0" jt="-7" >
 				<comment><![CDATA[rural verdadero, urbano falso]]></comment>
 			</column>
-			<column name="id_tarifa" type="varchar" length="9" jt="12" />
-			<column name="id_gestion_realizada_por" type="integer" jt="4" />
-			<column name="id_empresa" type="integer" jt="4" />
-			<column name="id_medidor" type="bigint" jt="-5" />
+			<column name="id_tarifa" type="varchar" length="9" decimal="0" jt="12" />
+			<column name="id_gestion_realizada_por" type="integer" length="10" decimal="0" jt="4" />
+			<column name="id_empresa" type="integer" length="10" decimal="0" jt="4" />
+			<column name="id_medidor" type="bigint" length="19" decimal="0" jt="-5" />
 			<index name="pk_lectura" unique="PRIMARY_KEY" >
 				<column name="id_lectura" />
 			</index>
-			<fk name="fk_tarifa" to_schema="public" to_table="tarifa" >
-				<fk_column name="id_tarifa" pk="id_tarifa" />
+			<fk name="fk_lectura_empresa" to_schema="public" to_table="empresa" >
+				<fk_column name="id_empresa" pk="id_empresa" />
 			</fk>
 			<fk name="fk_lectura_gestion_realizada_por" to_schema="public" to_table="gestion_realizada_por" >
 				<fk_column name="id_gestion_realizada_por" pk="id_gestion_realizada_por" />
 			</fk>
-			<fk name="fk_lectura_empresa" to_schema="public" to_table="empresa" >
-				<fk_column name="id_empresa" pk="id_empresa" />
-			</fk>
 			<fk name="fk_lectura_medidor" to_schema="public" to_table="medidor" >
 				<fk_column name="id_medidor" pk="id_medidor" />
 			</fk>
+			<fk name="fk_tarifa" to_schema="public" to_table="tarifa" >
+				<fk_column name="id_tarifa" pk="id_tarifa" />
+			</fk>
 		</table>
 		<table name="lugar_geografico" >
-			<column name="id_luger_geografico" type="varchar" length="6" jt="12" mandatory="y" />
-			<column name="descripcion" type="varchar" length="150" jt="12" />
+			<column name="id_luger_geografico" type="varchar" length="6" decimal="0" jt="12" mandatory="y" />
+			<column name="descripcion" type="varchar" length="150" decimal="0" jt="12" />
 			<index name="pk_lugar_geografico" unique="PRIMARY_KEY" >
 				<column name="id_luger_geografico" />
 			</index>
 		</table>
 		<table name="medidor" >
-			<column name="id_medidor" type="bigserial" jt="-5" mandatory="y" />
-			<column name="cuen" type="varchar" length="20" jt="12" />
-			<column name="cuenta" type="varchar" length="25" jt="12" />
-			<column name="num_medidor" type="varchar" length="25" jt="12" />
-			<column name="fecha_ingreso" type="date" jt="91" />
+			<column name="id_medidor" type="bigint" length="19" decimal="0" jt="-5" mandatory="y" >
+				<defo><![CDATA[nextval('medidor_id_medidor_seq1'::regclass)]]></defo>
+			</column>
+			<column name="cuen" type="varchar" length="20" decimal="0" jt="12" />
+			<column name="cuenta" type="varchar" length="25" decimal="0" jt="12" />
+			<column name="num_medidor" type="varchar" length="25" decimal="0" jt="12" />
+			<column name="fecha_ingreso" type="date" length="13" decimal="0" jt="91" />
 			<column name="coordenadas_x" type="numeric" jt="2" />
 			<column name="coordenadas_y" type="numeric" jt="2" />
-			<column name="ubicacion" type="varchar" length="150" jt="12" />
-			<column name="id_abonado" type="integer" jt="4" />
-			<column name="id_empresa" type="integer" jt="4" />
-			<column name="id_lugar_geografico" type="varchar" length="6" jt="12" />
+			<column name="ubicacion" type="varchar" length="150" decimal="0" jt="12" />
+			<column name="id_abonado" type="integer" length="10" decimal="0" jt="4" />
+			<column name="id_empresa" type="integer" length="10" decimal="0" jt="4" />
+			<column name="id_lugar_geografico" type="varchar" length="6" decimal="0" jt="12" />
 			<index name="pk_medidor" unique="PRIMARY_KEY" >
 				<column name="id_medidor" />
 			</index>
@@ -121,29 +129,35 @@ tomada falso]]></comment>
 			</fk>
 		</table>
 		<table name="tarifa" >
-			<column name="id_tarifa" type="varchar" length="9" jt="12" mandatory="y" >
+			<column name="id_tarifa" type="varchar" length="9" decimal="0" jt="12" mandatory="y" >
 				<defo><![CDATA[nextval('tarifa_id_tarifa_seq'::regclass)]]></defo>
 			</column>
-			<column name="descripcion" type="varchar" length="150" jt="12" />
+			<column name="descripcion" type="varchar" length="150" decimal="0" jt="12" />
 			<index name="pk_tarifa" unique="PRIMARY_KEY" >
 				<column name="id_tarifa" />
 			</index>
 		</table>
 		<sequence name="abonado_id_abonado_seq" options="START WITH 1 INCREMENT BY 1" />
+		<sequence name="abonado_id_abonado_seq1" options="START WITH 1 INCREMENT BY 1" />
 		<sequence name="gerion_realizada_por_id_gestion_realizada_por_seq" options="START WITH 1 INCREMENT BY 1" />
+		<sequence name="gestion_realizada_por_id_gestion_realizada_por_seq" options="START WITH 1 INCREMENT BY 1" />
 		<sequence name="lectura_id_lectura_seq" options="START WITH 1 INCREMENT BY 1" />
+		<sequence name="lectura_id_lectura_seq1" options="START WITH 1 INCREMENT BY 1" />
 		<sequence name="medidor_id_medidor_seq" options="START WITH 1 INCREMENT BY 1" />
+		<sequence name="medidor_id_medidor_seq1" options="START WITH 1 INCREMENT BY 1" />
 		<sequence name="tarifa_id_tarifa_seq" options="START WITH 1 INCREMENT BY 1" />
 	</schema>
+	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.133.169" port="5432" instance="basedcdcse_legacy" user="desarrollo" passwd="ZDNzNHJyMGxsMDEyMzQj" />
+	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.133.169" port="5432" instance="basedcdcse_legacy" user="desarrollo" passwd="ZDNzNHJyMGxsMDEyMzQj" />
 	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.130.212" port="5432" instance="eedlegacy" user="desarrollo" usage="Development" passwd="ZDNzNHJyMGxsMA==" />
 	<layout name="Main Layout" id="Layout-261b" show_column_type="y" show_page_borders="y" show_relation="columns" >
-		<entity schema="public" name="abonado" color="C1D8EE" x="672" y="208" />
-		<entity schema="public" name="empresa" color="C1D8EE" x="448" y="48" />
-		<entity schema="public" name="empresa_lugar" color="C1D8EE" x="128" y="176" />
-		<entity schema="public" name="gestion_realizada_por" color="C1D8EE" x="1216" y="576" />
-		<entity schema="public" name="lectura" color="C1D8EE" x="992" y="144" />
-		<entity schema="public" name="lugar_geografico" color="C1D8EE" x="48" y="384" />
-		<entity schema="public" name="medidor" color="C1D8EE" x="560" y="448" />
-		<entity schema="public" name="tarifa" color="C1D8EE" x="960" y="592" />
+		<entity schema="public" name="abonado" color="BED3F4" x="80" y="176" />
+		<entity schema="public" name="empresa" color="BED3F4" x="368" y="368" />
+		<entity schema="public" name="empresa_lugar" color="BED3F4" x="624" y="544" />
+		<entity schema="public" name="gestion_realizada_por" color="BED3F4" x="1008" y="48" />
+		<entity schema="public" name="lectura" color="BED3F4" x="688" y="48" />
+		<entity schema="public" name="lugar_geografico" color="BED3F4" x="48" y="368" />
+		<entity schema="public" name="medidor" color="BED3F4" x="368" y="48" />
+		<entity schema="public" name="tarifa" color="BED3F4" x="1008" y="304" />
 	</layout>
 </project>

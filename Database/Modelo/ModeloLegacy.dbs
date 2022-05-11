@@ -35,7 +35,7 @@
 				<fk_column name="id_empresa" pk="id_empresa" />
 			</fk>
 			<fk name="fk_empresa_lugar_lugar_geografico" to_schema="public" to_table="lugar_geografico" >
-				<fk_column name="id_lugar" pk="id_luger_geografico" />
+				<fk_column name="id_lugar" pk="id_lugar_geografico" />
 			</fk>
 		</table>
 		<table name="gestion_realizada_por" >
@@ -90,10 +90,10 @@ tomada falso]]></comment>
 			</fk>
 		</table>
 		<table name="lugar_geografico" >
-			<column name="id_luger_geografico" type="varchar" length="6" decimal="0" jt="12" mandatory="y" />
+			<column name="id_lugar_geografico" prior="id_luger_geografico" type="varchar" length="6" decimal="0" jt="12" mandatory="y" />
 			<column name="descripcion" type="varchar" length="150" decimal="0" jt="12" />
 			<index name="pk_lugar_geografico" unique="PRIMARY_KEY" >
-				<column name="id_luger_geografico" />
+				<column name="id_lugar_geografico" />
 			</index>
 		</table>
 		<table name="medidor" >
@@ -125,7 +125,7 @@ tomada falso]]></comment>
 				<fk_column name="id_empresa" pk="id_empresa" />
 			</fk>
 			<fk name="fk_medidor_lugar_geografico" to_schema="public" to_table="lugar_geografico" >
-				<fk_column name="id_lugar_geografico" pk="id_luger_geografico" />
+				<fk_column name="id_lugar_geografico" pk="id_lugar_geografico" />
 			</fk>
 		</table>
 		<table name="tarifa" >
@@ -147,9 +147,10 @@ tomada falso]]></comment>
 		<sequence name="medidor_id_medidor_seq1" options="START WITH 1 INCREMENT BY 1" />
 		<sequence name="tarifa_id_tarifa_seq" options="START WITH 1 INCREMENT BY 1" />
 	</schema>
-	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.133.169" port="5432" instance="basedcdcse_legacy" user="desarrollo" passwd="ZDNzNHJyMGxsMDEyMzQj" />
-	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.133.169" port="5432" instance="basedcdcse_legacy" user="desarrollo" passwd="ZDNzNHJyMGxsMDEyMzQj" />
+	<connector name="LaptopJonathan" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="192.168.100.94" port="5432" instance="eedlegacy" user="desarrollo" passwd="ZDNzNHJyMGxsMA==" />
 	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.130.212" port="5432" instance="eedlegacy" user="desarrollo" usage="Development" passwd="ZDNzNHJyMGxsMA==" />
+	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.133.169" port="5432" instance="basedcdcse_legacy" user="desarrollo" passwd="ZDNzNHJyMGxsMDEyMzQj" />
+	<connector name="PostgreSQL" database="PostgreSQL" driver_class="org.postgresql.Driver" driver_jar="postgresql-42.3.2.jar" driver_desc="Standard" host="172.17.133.169" port="5432" instance="basedcdcse_legacy" user="desarrollo" passwd="ZDNzNHJyMGxsMDEyMzQj" />
 	<layout name="Main Layout" id="Layout-261b" show_column_type="y" show_page_borders="y" show_relation="columns" >
 		<entity schema="public" name="abonado" color="BED3F4" x="80" y="176" />
 		<entity schema="public" name="empresa" color="BED3F4" x="368" y="368" />
