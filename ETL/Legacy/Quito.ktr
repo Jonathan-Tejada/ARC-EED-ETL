@@ -438,61 +438,25 @@
   <order>
     <hop>
       <from>Microsoft Excel input</from>
-      <to>Select values</to>
+      <to>Select Abonado</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select values</from>
+      <from>Select Lectura</from>
       <to>Strings cut</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Strings cut</from>
-      <to>Select values 2</to>
+      <from>Microsoft Excel input</from>
+      <to>Select Medidor</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel input</from>
+      <to>Select Lectura</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>CSV file input</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <filename/>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>,</separator>
-    <enclosure>"</enclosure>
-    <header>Y</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <format>mixed</format>
-    <encoding/>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1232</xloc>
-      <yloc>496</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Microsoft Excel input</name>
     <type>ExcelInput</type>
@@ -507,12 +471,12 @@
     <header>Y</header>
     <noempty>Y</noempty>
     <stoponempty>N</stoponempty>
-    <filefield>NombreArchivo</filefield>
-    <sheetfield>Hoja</sheetfield>
+    <filefield/>
+    <sheetfield/>
     <sheetrownumfield/>
     <rownumfield/>
-    <sheetfield>Hoja</sheetfield>
-    <filefield>NombreArchivo</filefield>
+    <sheetfield/>
+    <filefield/>
     <limit>0</limit>
     <encoding/>
     <add_to_result_filenames>Y</add_to_result_filenames>
@@ -520,7 +484,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>/home/jonathantejada/OneDrive/EPN/8.Octavo/Pasantias/Archivos de Lecturas ARCERNNR/Gestión de Toma de Lecturas 2019/Quito/EEQ_ARC001Gestión_Toma_de_LecturasENERO_2019.xlsx</name>
+      <name>E:\OneDrive - Escuela Politécnica Nacional\EPN\8.Octavo\Pasantias\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2019\Quito\EEQ_ARC001Gestión_Toma_de_LecturasENERO_2019.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -874,12 +838,12 @@ SI/NO</name>
     <line_number_files_destination_directory/>
     <line_number_files_extension>line</line_number_files_extension>
     <shortFileFieldName/>
-    <pathFieldName>path</pathFieldName>
+    <pathFieldName/>
     <hiddenFieldName/>
     <lastModificationTimeFieldName/>
     <uriNameFieldName/>
     <rootUriNameFieldName/>
-    <extensionFieldName>tipoArchivo</extensionFieldName>
+    <extensionFieldName/>
     <sizeFieldName/>
     <spreadsheet_type>POI</spreadsheet_type>
     <password>Encrypted </password>
@@ -898,7 +862,7 @@ SI/NO</name>
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
+    <name>Select Abonado</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -910,133 +874,12 @@ SI/NO</name>
     </partitioning>
     <fields>
       <field>
-        <name>Item</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Mes </name>
-        <rename/>
-      </field>
-      <field>
-        <name>Cuenta de Suministro</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nro. Medidor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tarifa</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Descripción de Tarifa SISDAT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nivel de Voltaje</name>
-        <rename/>
-      </field>
-      <field>
         <name>Cédula del Abonado</name>
-        <rename/>
+        <rename>Fcedula</rename>
       </field>
       <field>
         <name>Nombre y Apellido del Abonado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Fecha de Ingreso al Sistema Comercial</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Ubicación del Abonado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Provincia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Cantón</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Parroquia</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Coordenadas UTM X</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Coordenadas UTM Y</name>
-        <rename/>
-      </field>
-      <field>
-        <name> Cliente Rural / Urbano</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tipo de lectura
-Tomada/Propuesta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Si la lectura es propuesta, indicar la causa por la cual se propuso la lectura</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Último mes facturado en base a toma de lectura </name>
-        <rename/>
-      </field>
-      <field>
-        <name>La gestión se realiza con: 
- Personal Propio / Terceros / Medición Remota</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Servicio de toma de lectura se encuentra contratado:
-SI/NO</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nombre de la Empresa Contratista encargada de la toma de lecturas</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Sector o Ruta a cargo de la contratista</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Observaciones</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SPEE
-(USD)</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SAPG
-(USD)</name>
-        <rename/>
-      </field>
-      <field>
-        <name>NombreArchivo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Hoja</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipoArchivo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>path</name>
-        <rename/>
+        <rename>Fnombre</rename>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1049,8 +892,8 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>240</yloc>
+      <xloc>240</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1067,25 +910,25 @@ SI/NO</name>
     </partitioning>
     <fields>
       <field>
-        <in_stream_name>Mes </in_stream_name>
+        <in_stream_name>Fmes</in_stream_name>
         <out_stream_name>anio</out_stream_name>
         <cut_from>0</cut_from>
         <cut_to>3</cut_to>
       </field>
       <field>
-        <in_stream_name>Mes </in_stream_name>
+        <in_stream_name>Fmes</in_stream_name>
         <out_stream_name>mes</out_stream_name>
         <cut_from>4</cut_from>
         <cut_to>5</cut_to>
       </field>
       <field>
-        <in_stream_name>Último mes facturado en base a toma de lectura </in_stream_name>
+        <in_stream_name>Fultimomesfacturado</in_stream_name>
         <out_stream_name>anioTomaLectura</out_stream_name>
         <cut_from>0</cut_from>
         <cut_to>3</cut_to>
       </field>
       <field>
-        <in_stream_name>Último mes facturado en base a toma de lectura </in_stream_name>
+        <in_stream_name>Fultimomesfacturado</in_stream_name>
         <out_stream_name>mesTomaLectura</out_stream_name>
         <cut_from>4</cut_from>
         <cut_to>5</cut_to>
@@ -1100,13 +943,13 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>320</xloc>
-      <yloc>240</yloc>
+      <xloc>432</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select values 2</name>
+    <name>Select Medidor</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1118,169 +961,46 @@ SI/NO</name>
     </partitioning>
     <fields>
       <field>
-        <name>Item</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Mes </name>
-        <rename/>
-      </field>
-      <field>
         <name>Cuenta de Suministro</name>
-        <rename/>
+        <rename>Fcsuministro</rename>
       </field>
       <field>
         <name>Nro. Medidor</name>
-        <rename/>
+        <rename>Fnromedidor</rename>
       </field>
       <field>
         <name>Tarifa</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Descripción de Tarifa SISDAT</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nivel de Voltaje</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Cédula del Abonado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nombre y Apellido del Abonado</name>
-        <rename/>
+        <rename>Ftarifa</rename>
       </field>
       <field>
         <name>Fecha de Ingreso al Sistema Comercial</name>
-        <rename/>
+        <rename>Ffechaingreso</rename>
       </field>
       <field>
         <name>Ubicación del Abonado</name>
-        <rename/>
+        <rename>Fubicacion</rename>
       </field>
       <field>
         <name>Provincia</name>
-        <rename/>
+        <rename>Fprovincia</rename>
       </field>
       <field>
         <name>Cantón</name>
-        <rename/>
+        <rename>Fcanton</rename>
       </field>
       <field>
         <name>Parroquia</name>
-        <rename/>
+        <rename>Fparroquia</rename>
       </field>
       <field>
         <name>Coordenadas UTM X</name>
-        <rename/>
+        <rename>Fcoordenadasx</rename>
       </field>
       <field>
         <name>Coordenadas UTM Y</name>
-        <rename/>
-      </field>
-      <field>
-        <name> Cliente Rural / Urbano</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Tipo de lectura
-Tomada/Propuesta</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Si la lectura es propuesta, indicar la causa por la cual se propuso la lectura</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Último mes facturado en base a toma de lectura </name>
-        <rename/>
-      </field>
-      <field>
-        <name>La gestión se realiza con: 
- Personal Propio / Terceros / Medición Remota</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Servicio de toma de lectura se encuentra contratado:
-SI/NO</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Nombre de la Empresa Contratista encargada de la toma de lecturas</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Sector o Ruta a cargo de la contratista</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Observaciones</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SPEE
-(USD)</name>
-        <rename/>
-      </field>
-      <field>
-        <name>SAPG
-(USD)</name>
-        <rename/>
-      </field>
-      <field>
-        <name>NombreArchivo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>Hoja</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tipoArchivo</name>
-        <rename/>
-      </field>
-      <field>
-        <name>path</name>
-        <rename/>
-      </field>
-      <field>
-        <name>anio</name>
-        <rename/>
-      </field>
-      <field>
-        <name>mes</name>
-        <rename/>
-      </field>
-      <field>
-        <name>anioTomaLectura</name>
-        <rename/>
-      </field>
-      <field>
-        <name>mesTomaLectura</name>
-        <rename/>
+        <rename>Fcoordenadasy</rename>
       </field>
       <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>Item</name>
-      </remove>
-      <remove>
-        <name>Mes </name>
-      </remove>
-      <remove>
-        <name>Descripción de Tarifa SISDAT</name>
-      </remove>
-      <remove>
-        <name>Nivel de Voltaje</name>
-      </remove>
-      <remove>
-        <name>Hoja</name>
-      </remove>
-      <remove>
-        <name>tipoArchivo</name>
-      </remove>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1291,8 +1011,97 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
+      <xloc>240</xloc>
       <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select Lectura</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Mes </name>
+        <rename>Fmes</rename>
+      </field>
+      <field>
+        <name>Cuenta de Suministro</name>
+        <rename>Fcuentasuministro</rename>
+      </field>
+      <field>
+        <name>Nro. Medidor</name>
+        <rename>Fnromedidor</rename>
+      </field>
+      <field>
+        <name>Cliente Rural / Urbano</name>
+        <rename>Fruralurbano</rename>
+      </field>
+      <field>
+        <name>Tipo de lectura
+Tomada/Propuesta</name>
+        <rename>Ftomadapropuesta</rename>
+      </field>
+      <field>
+        <name>Si la lectura es propuesta, indicar la causa por la cual se propuso la lectura</name>
+        <rename>Fnotalectura</rename>
+      </field>
+      <field>
+        <name>Último mes facturado en base a toma de lectura </name>
+        <rename>Fultimomesfacturado</rename>
+      </field>
+      <field>
+        <name>La gestión se realiza con: 
+ Personal Propio / Terceros / Medición Remota</name>
+        <rename>Fgestionrealizacon</rename>
+      </field>
+      <field>
+        <name>Servicio de toma de lectura se encuentra contratado:
+SI/NO</name>
+        <rename>Flecturacontratada</rename>
+      </field>
+      <field>
+        <name>Nombre de la Empresa Contratista encargada de la toma de lecturas</name>
+        <rename>Fempresacontratista</rename>
+      </field>
+      <field>
+        <name>Sector o Ruta a cargo de la contratista</name>
+        <rename>Fsectorruta</rename>
+      </field>
+      <field>
+        <name>Observaciones</name>
+        <rename>Fobservaciones</rename>
+      </field>
+      <field>
+        <name>SPEE
+(USD)</name>
+        <rename>Fspee</rename>
+      </field>
+      <field>
+        <name>SAPG
+(USD)</name>
+        <rename>Fsapg</rename>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
