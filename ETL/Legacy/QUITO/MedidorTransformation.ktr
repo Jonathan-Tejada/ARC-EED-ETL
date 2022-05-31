@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>LecturaExcel</name>
+    <name>MedidorTransformation</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -428,16 +428,16 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2022/04/08 14:17:39.886</created_date>
+    <created_date>2022/05/31 09:05:52.355</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2022/04/08 14:17:39.886</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2022/05/31 09:05:52.355</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
   <connection>
-    <name>RadminWilman</name>
+    <name>wilmanRadmin</name>
     <server>26.204.211.40</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
@@ -489,13 +489,13 @@
   </connection>
   <order>
     <hop>
-      <from>Select Abonado</from>
-      <to>Sort rows</to>
+      <from>Microsoft Excel input</from>
+      <to>Select Medidor</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Microsoft Excel input</from>
-      <to>Select Abonado</to>
+      <from>Select Medidor</from>
+      <to>Sort rows</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -505,97 +505,35 @@
     </hop>
     <hop>
       <from>Unique rows</from>
+      <to>Select values</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Table input</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unique rows</from>
       <to>Agregar codigo de Empresa</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Agregar codigo de Empresa</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Table input</from>
+      <to>Merge join</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge join</from>
       <to>Insert / update</to>
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>Agregar codigo de Empresa</name>
-    <type>Constant</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>Cid_empresa</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>174</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Insert / update</name>
-    <type>InsertUpdate</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>RadminWilman</connection>
-    <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
-    <lookup>
-      <schema>public</schema>
-      <table>abonado</table>
-      <key>
-        <name>Fcedula</name>
-        <field>identificacion</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>nombre</name>
-        <rename>Fnombre</rename>
-        <update>N</update>
-      </value>
-    </lookup>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>960</xloc>
-      <yloc>96</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>Microsoft Excel input</name>
     <type>ExcelInput</type>
@@ -624,11 +562,6 @@
     <accept_stepname/>
     <file>
       <name>E:\OneDrive - Escuela Politécnica Nacional\EPN\8.Octavo\Pasantias\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2019\Quito\EEQ_ARC001Gestión_Toma_de_LecturasENERO_2019.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name>E:\OneDrive - Escuela Politécnica Nacional\EPN\8.Octavo\Pasantias\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2021\EE Quito\2. BIL034_-_Control_de_Estimados_NEW feb2021.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1000,13 +933,13 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>96</yloc>
+      <xloc>80</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Select Abonado</name>
+    <name>Select Medidor</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -1018,14 +951,97 @@ SI/NO</name>
     </partitioning>
     <fields>
       <field>
-        <name>Cédula del Abonado</name>
-        <rename>Fcedula</rename>
+        <name>Cuenta de Suministro</name>
+        <rename>Fcuenta</rename>
       </field>
       <field>
-        <name>Nombre y Apellido del Abonado</name>
-        <rename>Fnombre</rename>
+        <name>Nro. Medidor</name>
+        <rename>Fnum_medidor</rename>
+      </field>
+      <field>
+        <name>Cédula del Abonado</name>
+        <rename>Fidentificacion</rename>
+      </field>
+      <field>
+        <name>Ubicación del Abonado</name>
+        <rename>Fubicacion</rename>
+      </field>
+      <field>
+        <name>Provincia</name>
+        <rename>Fprovincia</rename>
+      </field>
+      <field>
+        <name>Cantón</name>
+        <rename>Fcanton</rename>
+      </field>
+      <field>
+        <name>Parroquia</name>
+        <rename>Fparroquia</rename>
+      </field>
+      <field>
+        <name>Coordenadas UTM X</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Coordenadas UTM Y</name>
+        <rename/>
+      </field>
+      <field>
+        <name>Fecha de Ingreso al Sistema Comercial</name>
+        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
+      <meta>
+        <name>Fecha de Ingreso al Sistema Comercial</name>
+        <rename>Ffecha_ingreso</rename>
+        <type>Date</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>yyyyMMdd</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Coordenadas UTM X</name>
+        <rename>Fcoordenadas_x</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>#######.###</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
+      <meta>
+        <name>Coordenadas UTM Y</name>
+        <rename>Fcoordenadas_y</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>#######.###</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1036,8 +1052,8 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>96</yloc>
+      <xloc>240</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1061,7 +1077,7 @@ SI/NO</name>
     <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>Fcedula</name>
+        <name>Fcuenta</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1069,7 +1085,71 @@ SI/NO</name>
         <presorted>N</presorted>
       </field>
       <field>
-        <name>Fnombre</name>
+        <name>Fnum_medidor</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Fidentificacion</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Ffecha_ingreso</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Fubicacion</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Fprovincia</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Fcanton</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Fparroquia</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Fcoordenadas_x</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>Fcoordenadas_y</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -1086,8 +1166,8 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>96</yloc>
+      <xloc>352</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1095,7 +1175,7 @@ SI/NO</name>
     <name>Unique rows</name>
     <type>Unique</type>
     <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
@@ -1108,12 +1188,44 @@ SI/NO</name>
     <error_description/>
     <fields>
       <field>
-        <name>Fcedula</name>
-        <case_insensitive>N</case_insensitive>
+        <name>Fcuenta</name>
+        <case_insensitive>Y</case_insensitive>
       </field>
       <field>
-        <name>Fnombre</name>
-        <case_insensitive>N</case_insensitive>
+        <name>Fnum_medidor</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Fidentificacion</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Ffecha_ingreso</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Fubicacion</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Fprovincia</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Fcanton</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Fparroquia</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Fcoordenadas_x</name>
+        <case_insensitive>Y</case_insensitive>
+      </field>
+      <field>
+        <name>Fcoordenadas_y</name>
+        <case_insensitive>Y</case_insensitive>
       </field>
     </fields>
     <attributes/>
@@ -1125,8 +1237,302 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>96</yloc>
+      <xloc>448</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>wilmanRadmin</connection>
+    <sql>SELECT
+  id_abonado, identificacion
+FROM "public".abonado
+where identificacion=?</sql>
+    <limit>0</limit>
+    <lookup>Select values</lookup>
+    <execute_each_row>Y</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>id_abonado</name>
+        <length>9</length>
+        <precision>0</precision>
+        <origin>Table input</origin>
+        <comments>id_abonado</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>identificacion</name>
+        <length>20</length>
+        <precision>-1</precision>
+        <origin>Table input</origin>
+        <comments>identificacion</comments>
+        <conversion_Mask/>
+        <decimal_symbol>.</decimal_symbol>
+        <grouping_symbol>,</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>en_US</date_format_locale>
+        <date_format_timezone>America/Bogota</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Fidentificacion</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>448</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Agregar codigo de Empresa</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>Cid_empresa</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>174</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Insert / update</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>wilmanRadmin</connection>
+    <commit>100</commit>
+    <update_bypassed>Y</update_bypassed>
+    <lookup>
+      <schema>public</schema>
+      <table>medidor</table>
+      <key>
+        <name/>
+        <field>cuen</field>
+        <condition>IS NULL</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Fcuenta</name>
+        <field>cuenta</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Fnum_medidor</name>
+        <field>num_medidor</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id_abonado</name>
+        <rename>id_abonado</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>cuenta</name>
+        <rename>Fcuenta</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>num_medidor</name>
+        <rename>Fnum_medidor</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>fecha_ingreso</name>
+        <rename>Ffecha_ingreso</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>ubicacion</name>
+        <rename>Fubicacion</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>provincia</name>
+        <rename>Fprovincia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>canton</name>
+        <rename>Fcanton</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>parroquia</name>
+        <rename>Fparroquia</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>coordenadas_x</name>
+        <rename>Fcoordenadas_x</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>coordenadas_y</name>
+        <rename>Fcoordenadas_y</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>id_empresa</name>
+        <rename>Cid_empresa</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Agregar codigo de Empresa</step1>
+    <step2>Table input</step2>
+    <keys_1>
+      <key>Fidentificacion</key>
+    </keys_1>
+    <keys_2>
+      <key>identificacion</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>752</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
