@@ -548,8 +548,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>832</xloc>
-      <yloc>96</yloc>
+      <xloc>624</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -566,13 +566,19 @@
     </partitioning>
     <connection>RadminWilman</connection>
     <commit>100</commit>
-    <update_bypassed>N</update_bypassed>
+    <update_bypassed>Y</update_bypassed>
     <lookup>
       <schema>public</schema>
       <table>abonado</table>
       <key>
         <name>Fcedula</name>
         <field>identificacion</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>Cid_empresa</name>
+        <field>id_empresa</field>
         <condition>=</condition>
         <name2/>
       </key>
@@ -586,6 +592,11 @@
         <rename>Cid_empresa</rename>
         <update>N</update>
       </value>
+      <value>
+        <name>identificacion</name>
+        <rename>Fcedula</rename>
+        <update>N</update>
+      </value>
     </lookup>
     <attributes/>
     <cluster_schema/>
@@ -596,8 +607,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>96</yloc>
+      <xloc>752</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -628,12 +639,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>E:\OneDrive - Escuela Politécnica Nacional\EPN\8.Octavo\Pasantias\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2019\Quito\EEQ_ARC001Gestión_Toma_de_LecturasENERO_2019.xlsx</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>N</include_subfolders>
-      <name>E:\OneDrive - Escuela Politécnica Nacional\EPN\8.Octavo\Pasantias\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2021\EE Quito\2. BIL034_-_Control_de_Estimados_NEW feb2021.xlsx</name>
+      <name>C:\Users\MY ACER\OneDrive - Escuela Politécnica Nacional\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2019\Quito\EEQ_ARC001Gestión_Toma_de_Lecturas_JUNIO_2019.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1005,8 +1011,8 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
-      <yloc>96</yloc>
+      <xloc>96</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1041,8 +1047,8 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>448</xloc>
-      <yloc>96</yloc>
+      <xloc>240</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1091,8 +1097,8 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>576</xloc>
-      <yloc>96</yloc>
+      <xloc>368</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1130,8 +1136,8 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>720</xloc>
-      <yloc>96</yloc>
+      <xloc>512</xloc>
+      <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
