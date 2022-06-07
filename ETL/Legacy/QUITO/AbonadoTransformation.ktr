@@ -494,11 +494,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Microsoft Excel input</from>
-      <to>Select Abonado</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Sort rows</from>
       <to>Unique rows</to>
       <enabled>Y</enabled>
@@ -511,6 +506,11 @@
     <hop>
       <from>Agregar codigo de Empresa</from>
       <to>Insert / update</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Microsoft Excel input</from>
+      <to>Select Abonado</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -639,7 +639,7 @@
     <accept_field/>
     <accept_stepname/>
     <file>
-      <name>C:\Users\MY ACER\OneDrive - Escuela Politécnica Nacional\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2019\Quito\EEQ_ARC001Gestión_Toma_de_Lecturas_JUNIO_2019.xlsx</name>
+      <name>C:\Users\MY ACER\OneDrive - Escuela Politécnica Nacional\Archivos de Lecturas ARCERNNR\Gestión de Toma de Lecturas 2019\Quito\ARC001_-_Gestión_Toma_de_Lecturas_AGOSTO.xlsx</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -659,7 +659,7 @@
         <group/>
       </field>
       <field>
-        <name>Mes </name>
+        <name>AñoMes</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -671,8 +671,8 @@
         <group/>
       </field>
       <field>
-        <name>Cuenta de Suministro</name>
-        <type>String</type>
+        <name>Cuen</name>
+        <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -683,7 +683,7 @@
         <group/>
       </field>
       <field>
-        <name>Nro. Medidor</name>
+        <name>Medidor</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -707,7 +707,7 @@
         <group/>
       </field>
       <field>
-        <name>Descripción de Tarifa SISDAT</name>
+        <name>Descripción Tarifa</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -719,7 +719,7 @@
         <group/>
       </field>
       <field>
-        <name>Nivel de Voltaje</name>
+        <name>Nivel Voltaje</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -731,7 +731,7 @@
         <group/>
       </field>
       <field>
-        <name>Cédula del Abonado</name>
+        <name>Cedula</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -743,7 +743,7 @@
         <group/>
       </field>
       <field>
-        <name>Nombre y Apellido del Abonado</name>
+        <name>Nombre</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -755,7 +755,7 @@
         <group/>
       </field>
       <field>
-        <name>Fecha de Ingreso al Sistema Comercial</name>
+        <name>Fecha Ingreso Sistema</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -767,7 +767,7 @@
         <group/>
       </field>
       <field>
-        <name>Ubicación del Abonado</name>
+        <name>Ubicación</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -791,7 +791,7 @@
         <group/>
       </field>
       <field>
-        <name>Cantón</name>
+        <name>Canton</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -815,7 +815,7 @@
         <group/>
       </field>
       <field>
-        <name>Coordenadas UTM X</name>
+        <name>Coordernada X</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -827,7 +827,7 @@
         <group/>
       </field>
       <field>
-        <name>Coordenadas UTM Y</name>
+        <name>Coordenada Y</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -839,7 +839,7 @@
         <group/>
       </field>
       <field>
-        <name> Cliente Rural / Urbano</name>
+        <name>Ruralidad</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -851,8 +851,7 @@
         <group/>
       </field>
       <field>
-        <name>Tipo de lectura
-Tomada/Propuesta</name>
+        <name>Tipo Consumo</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -864,7 +863,7 @@ Tomada/Propuesta</name>
         <group/>
       </field>
       <field>
-        <name>Si la lectura es propuesta, indicar la causa por la cual se propuso la lectura</name>
+        <name>Novedad Lectura</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -876,7 +875,7 @@ Tomada/Propuesta</name>
         <group/>
       </field>
       <field>
-        <name>Último mes facturado en base a toma de lectura </name>
+        <name>Último Mes Facturado</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -888,8 +887,7 @@ Tomada/Propuesta</name>
         <group/>
       </field>
       <field>
-        <name>La gestión se realiza con: 
- Personal Propio / Terceros / Medición Remota</name>
+        <name>La Gestión Se Realiza Con:</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -901,8 +899,7 @@ Tomada/Propuesta</name>
         <group/>
       </field>
       <field>
-        <name>Servicio de toma de lectura se encuentra contratado:
-SI/NO</name>
+        <name>Servicio de Toma de Lectura se Encuentra Contratado:</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -914,7 +911,7 @@ SI/NO</name>
         <group/>
       </field>
       <field>
-        <name>Nombre de la Empresa Contratista encargada de la toma de lecturas</name>
+        <name>Empresa Contratista</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -926,7 +923,7 @@ SI/NO</name>
         <group/>
       </field>
       <field>
-        <name>Sector o Ruta a cargo de la contratista</name>
+        <name>Mru</name>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -950,8 +947,7 @@ SI/NO</name>
         <group/>
       </field>
       <field>
-        <name>SPEE
-(USD)</name>
+        <name>SPEE</name>
         <type>Number</type>
         <length>-1</length>
         <precision>-1</precision>
@@ -963,9 +959,44 @@ SI/NO</name>
         <group/>
       </field>
       <field>
-        <name>SAPG
-(USD)</name>
+        <name>Sapg</name>
         <type>Number</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Estado Lectura</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Clase Lectura</name>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+        <repeat>N</repeat>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+      </field>
+      <field>
+        <name>Instalación</name>
+        <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -1011,7 +1042,7 @@ SI/NO</name>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
+      <xloc>80</xloc>
       <yloc>48</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1029,11 +1060,11 @@ SI/NO</name>
     </partitioning>
     <fields>
       <field>
-        <name>Cédula del Abonado</name>
+        <name>Cedula</name>
         <rename>Fcedula</rename>
       </field>
       <field>
-        <name>Nombre y Apellido del Abonado</name>
+        <name>Nombre</name>
         <rename>Fnombre</rename>
       </field>
       <select_unspecified>N</select_unspecified>
